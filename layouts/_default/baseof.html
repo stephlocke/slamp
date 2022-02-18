@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ⚡ lang="{{.Site.LanguageCode}}">
+	<head>
+		{{- partial "head/base.html" . -}}
+
+	</head>
+	<body>
+		{{- partial "page/install-sw.html" . -}}
+		{{- partial "structured-data/base.html" . -}}
+		{{- partial "header/base.html" . -}}
+		<main class="container-fluid">
+			{{- block "main" . }}{{- end }}
+		</main>
+		{{- partial "footer/base.html" . -}}
+	</body>
+</html>

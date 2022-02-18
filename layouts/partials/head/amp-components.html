@@ -1,0 +1,26 @@
+{{- $ampCorePath := index (index $.Site.Data "amp-modules") "amp-core" -}}
+{{- $ampCoreModulePath := index (index $.Site.Data "amp-modules") "amp-core-module" -}}
+
+<script  async src="{{ $ampCorePath }}" ></script>
+
+
+{{- range $.Site.Params.ampElements -}}
+    {{- if (index (index $.Site.Data "amp-modules") .) -}}
+        <script async custom-element="{{ . }}" src="{{ (index (index $.Site.Data "amp-modules") .) }}"></script>
+    {{- end }}
+{{- end }}
+{{- range $.Site.Params.ampTemplates -}}
+    {{- if (index (index $.Site.Data "amp-modules") .) -}}
+        <script async custom-template="{{ . }}" src="{{ (index (index $.Site.Data "amp-modules") .) }}"></script>
+    {{- end }}
+{{- end }}
+{{ with .Params.amp.elements }}
+    {{ range . }}
+        {{ if in $.Site.Params.ampElements . }}
+        {{ else }}
+            {{- if (index (index $.Site.Data "amp-modules") .) -}}
+                <script async custom-element="{{ . }}" src="{{ (index (index $.Site.Data "amp-modules") .) }}"></script>
+            {{- end }}
+        {{ end }}
+    {{ end }}
+{{ end }}

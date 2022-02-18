@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+{{ partial "home/hello.html" . }}
+
+{{ range .Site.Params.homepageActiveSections}}
+    {{ with $.Site.GetPage . }}
+        {{ partial "home/activesection.html" . }}
+    {{ end}}
+{{ end }}
+
+{{ range .Site.Params.homepageLatestSections}}
+    {{ with $.Site.GetPage . }}
+        {{ partial "home/latestsection.html" . }}
+    {{ end}}
+{{ end }}
+
+{{ end }}

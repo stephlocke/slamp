@@ -1,0 +1,31 @@
+<footer id="footer" class="container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="" data-rel="prefetch" href="{{ "" | absLangURL }}" aria-label="{{ i18n "goBackHome" }}">
+                    <amp-img  src="{{ ((resources.Get .Site.Params.logo).Fill "30x30 webp").Permalink }}" 
+                    width="30" height="30" layout="fixed" title="{{ .Site.Params.logoalt }}" alt="{{ .Site.Params.logoalt }}"></amp-img>
+                </a>
+            </div>
+            <div class="col">
+                {{ range .Site.Params.social }}
+                    <li class="list-inline-item">
+                        <a href="{{ index . 1 }}" target="_blank" rel="noreferrer"  title="{{ $.Site.Params.author }} on {{ index . 0 }}"> 
+                            <amp-img src="{{(resources.Get (printf "icons/%s.svg" (index . 2))).Permalink}}" height="30" width="30" 
+                            layout="fixed" class="social" title="{{ $.Site.Params.author }} on {{ index . 0 }}" alt="{{ index . 1 }}"></amp-img>
+                        </a>
+                    </li>
+                 {{ end }}
+            </div>
+    </div>
+    <div class="row">        
+        {{ partial "footer/menus.html" .}}
+        </div>
+        <div class="row">
+            <div class="col text-white">
+                <p>{{.Site.Params.CookieNotice}}</p>
+                <p>© {{ .Site.Params.Copyright }} {{ now.Format "2006" }} all rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>

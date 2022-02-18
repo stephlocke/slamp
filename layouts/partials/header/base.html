@@ -1,0 +1,58 @@
+<header class="mega-menu full-width sticky-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="header">
+        <div class="container">
+          <nav class="main-menu" id="main-menu">
+            <!-- Mobile Menu -->
+            <label for="mobile" id="mobile-menu">
+              <a data-rel="prefetch" href="{{ "" | absLangURL }}" aria-label="{{ i18n "goBackHome" }}">
+                <amp-img 
+                alt="{{ .Site.Title }}"
+                src="{{ ((resources.Get .Site.Params.logo).Fill "30x30 webp").Permalink }}"
+                height="30"
+                width="30"
+                title="{{ .Site.Params.logoalt }}"
+                alt="{{ .Site.Params.logoalt }}"
+                ></amp-img>
+            </a>
+          
+              <span class="main-menu-dropdown-icon">
+                <i class="hamburger"></i>
+              </span>
+            </label>
+        
+            <input type="checkbox" id="mobile">
+        
+            <!-- Main menu -->
+            <ul class="main-menu">
+              <!-- Left links -->
+              <li class="main-menu-logo">
+                <a data-rel="prefetch" href="{{ "" | absLangURL }}" aria-label="{{ i18n "goBackHome" }}">
+                  <amp-img 
+                  alt="{{ .Site.Title }}"
+                  src="{{ ((resources.Get .Site.Params.logo).Fill "30x30 webp").Permalink }}"
+                  height="30"
+                  width="30"
+                  title="{{ .Site.Params.logoalt }}"
+                  alt="{{ .Site.Params.logoalt }}"
+                  ></amp-img>
+              </a>
+              </li>
+
+              
+            {{ range .Site.Menus.main.ByWeight }}
+            <li class="main-menu-left">
+                    <a href="{{ .URL }}" class="" title="{{.Name}}">
+                        {{ .Name }}
+                    </a>
+                </li>
+            {{ end }}  
+            </ul>
+            <!-- /main-menu -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

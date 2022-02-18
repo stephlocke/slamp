@@ -1,0 +1,4 @@
+menus:
+  - name: main
+    title: Core
+    footer: true

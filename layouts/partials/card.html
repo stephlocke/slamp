@@ -1,0 +1,24 @@
+<div class="col-lg-6">
+    <div class="card mb-3">
+        {{ range first 1  (.Resources.ByType "image") }}
+            <amp-img  class="card-img-top"  src="{{ .Permalink }}"
+            srcset="
+            {{ (.Fill "1200x900 webp" | images.Filter (images.GaussianBlur 6)).Permalink }} 1200w,
+            {{ (.Fill "800x600 webp"  | images.Filter (images.GaussianBlur 6)).Permalink }} 800w,
+            {{ (.Fill "640x480 webp"  | images.Filter (images.GaussianBlur 6)).Permalink }} 640w,
+            {{ (.Fill "480x360 webp"  | images.Filter (images.GaussianBlur 6)).Permalink }} 480w,
+            {{ (.Fill "320x240 webp"  | images.Filter (images.GaussianBlur 6)).Permalink }} 320w
+                "
+            width="400" height="300"  layout="intrinsic" title="{{ .Title }}" alt="{{.Title}}">
+            </amp-img>
+        {{ end }}
+        <div class="card-body">
+            <h3 class="card-title">{{ .Title }}</h3>
+            <p class="card-text">{{.Summary | truncate 150 }}</p>
+            <a 
+                class="card-link"
+                href="{{.Permalink}}"
+                title="{{.Title}}">More</a>
+        </div>
+    </div>
+</div>

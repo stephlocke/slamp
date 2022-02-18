@@ -1,0 +1,29 @@
+<meta name="description" content="{{if .IsHome}}{{- .Site.Params.Description -}}{{else}}{{- .Description -}}{{end}}">
+<meta name="keywords" content="{{if not .IsHome }}{{with .Params.tags}}{{delimit . ", " -}}{{else}}{{range .Site.Taxonomies.tags }}{{.Page.Title}},{{end}}{{end}}{{else}}{{range .Site.Taxonomies.tags }}{{.Page.Title}},{{end}}{{end}}">
+<meta name="author" content="{{.Site.Params.author}}">
+
+<!--  Essential META Tags -->
+
+<meta property="og:title" content="{{- .Title -}}"/>
+<meta property="og:description" content="{{if .IsHome}}{{- .Site.Params.Description -}}{{else}}{{- .Description -}}{{end}}"/>
+<meta property="og:image" content="{{ range first 1 (.Resources.ByType "image") }}{{ if in (slice "png" "jpg" "jpeg") .MediaType.SubType }}{{- (.Fill "1200x675").Permalink -}}{{ else }}{{.Permalink}}{{ end }}{{ end }}"/>
+
+<meta property="og:url" content="{{- .Permalink -}}"/>
+<meta name="twitter:card" content="{{ if and (isset .Params "youtube_code") (ne .Params.youtube_code "" )}}{{"player"}}{{else}}{{"summary_large_image"}}{{end}}"/>
+<meta name="twitter:site" content="@nightingalehqai"/>
+<meta name="twitter:player" content="{{ if and (isset .Params "youtube_code") (ne .Params.youtube_code "" )}} {{"https://www.youtube.com/embed/"}}{{ .Params.youtube_code }}{{else}}{{" "}}{{end}}"/>
+<meta name="twitter:player:width" content="480" />
+<meta name="twitter:player:height" content="480" />
+
+<!--  Non-Essential, But Recommended -->
+
+<meta property="og:site_name" content="{{.Site.Params.sitename}}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_GB"/>
+<meta property="og:author" content="{{- .Site.Params.author -}}" />
+<meta property="article:author" content="{{with .Params.author}}{{ . }}{{ else }}{{- .Site.Params.author -}}{{ end }}" />
+<meta property="article:published_time" content="{{ with .PublishDate }}{{ . }}{{ else }}{{- .Date -}}{{ end }}" />
+<meta property="article:modified_time" content="{{ with .Lastmod }}{{ . }}{{ else }}{{- .Date -}}{{ end }}" />
+<meta property="article:expiration_time" content="{{ with .ExpiryDate }}{{ . }}{{ end }}" />
+<meta property="article:tag" content="{{if not .IsHome }}{{with .Params.tags}}{{delimit . ", " -}}{{else}}{{range .Site.Taxonomies.tags }}{{.Page.Title}},{{end}}{{end}}{{else}}{{range .Site.Taxonomies.tags }}{{.Page.Title}},{{end}}{{end}}" />
+<meta property="article:section" content="{{if not .IsHome }}{{with .Params.categories}}{{ . }}{{end}}{{end}}" />

@@ -1,0 +1,20 @@
+<section id="hello" class="container-fluid bg-primary">
+    <div class="row py-5">
+        <div class="col text-white text-center">
+            <h1 class="text-white">{{.Site.Title}}</h1>
+            {{ with .Site.GetPage "home/hello.md" }}
+                {{ .Content }}
+            {{ end }}
+            <ul class="list-inline">
+            {{ range .Site.Params.social }}
+               <li class="list-inline-item">
+                    <a href="{{ index . 1 }}" target="_blank" rel="noreferrer"  title="{{ $.Site.Params.author }} on {{ index . 0 }}"> 
+                        <amp-img src="{{(resources.Get (printf "icons/%s.svg" (index . 2))).Permalink}}" height="30" width="30" 
+                        layout="fixed" class="social" title="{{ $.Site.Params.author }} on {{ index . 0 }}" alt="{{ index . 1 }}"></amp-img>
+                    </a>
+               </li>
+            {{ end }}
+            </ul>
+        </div>
+    </div>
+</section>

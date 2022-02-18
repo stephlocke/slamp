@@ -1,0 +1,21 @@
+{{ $menus :=  .Site.Data.menus.menus }}
+{{ range where $menus ".footer" true}}
+    {{ $menu := index $.Site.Menus .name}}
+    {{ if gt (len $menu) 0 }}
+    <div class="col">
+        <h3>{{.title}}</h3>
+        <ul class=" list-unstyled">
+            {{ range $menu }}
+            <li class="list-unstyled-item"> <a href="{{ .URL }}">{{ .Name }}</a></li>
+                {{ with .Children }}
+                <ul class="list-unstyled sub-menu">
+                    {{ range . }}
+                        <li> <a href="{{ .URL }}">{{ .Name }}</a> </li>
+                    {{ end }}
+                </ul>            
+                {{ end }}        
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+{{ end}}

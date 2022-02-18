@@ -1,0 +1,11 @@
+{{- $icon512 :=  (resources.Get .Site.Params.logo).Fit "512x512" -}}
+{
+    "name": "{{ .Site.Title }}",
+    "short_name": "{{ .Site.Title }}",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#009688",
+    "description": "{{ .Site.Title }}",
+    "icons":[{"src":"{{ $icon512.Permalink }}","sizes":"512x512","type":"image/png"}]
+  }

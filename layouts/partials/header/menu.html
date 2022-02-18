@@ -1,0 +1,7 @@
+{{ range .Site.Menus.main.ByWeight.Reverse }}
+    <li>
+        <a href="{{ .URL }}" title="{{.Name}}">
+            {{ .Name }}
+        </a>
+    </li>
+{{ end }}  

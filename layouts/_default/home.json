@@ -1,0 +1,15 @@
+[
+    {{- range $index, $e := .Site.AllPages }}
+    {{- if $index }},{{- end }}
+    {
+      "url": {{ .Permalink | jsonify }},
+      "title": {{ .Title | jsonify }},
+      "date_published": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+      "date_published_display": {{ .Date.Format "Monday, January 2, 2006 3:04 PM" | jsonify }},
+      "description": {{ .Summary | plainify | jsonify }},
+      "content": {{ .Plain | jsonify }},
+      "tags": {{ .Params.tags | jsonify }},
+      "image": "{{ with.Params.image }}{{ . | absURL }}{{ else }}{{ .Site.Params.logo | absURL }}{{ end }}"
+    }
+    {{- end }}
+  ]

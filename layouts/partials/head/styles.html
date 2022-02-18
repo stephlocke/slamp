@@ -1,0 +1,12 @@
+<link href=https://fonts.gstatic.com rel="dns-prefetch preconnect" crossorigin>
+
+<link href="{{ .Site.Params.fonts }}" rel="stylesheet">
+<style amp-custom>
+    {{- range $.Site.Params.scss -}}
+        {{ if resources.Get . }}
+            {{ with resources.Get . | resources.ToCSS | resources.Minify }}
+                {{ .Content | safeCSS }}
+            {{ end }}
+        {{ end }}
+    {{- end }}
+</style>

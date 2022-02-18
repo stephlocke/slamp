@@ -1,0 +1,14 @@
+{{ if gt .Paginator.TotalPages 1 }}
+<div id="pagination" class="container-fluid row">
+	{{ if .Paginator.HasPrev }}
+	<div class="">
+		<a class="" href="{{ .Paginator.Prev.URL | absLangURL }}">< {{ i18n "previous" }} </a>
+	</div>
+	{{ end }}
+	{{ if .Paginator.HasNext }}
+	<div class="">
+		<a  class="" href="{{ .Paginator.Next.URL  | absLangURL }}" > {{ i18n "next" }} ></a>
+	</div>
+	{{ end }}
+</div>
+{{ end }}

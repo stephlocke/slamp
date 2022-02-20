@@ -1,16 +1,5 @@
 {{ $pages := .Pages.ByPublishDate.Reverse }}
 {{ $latest := first .Site.Params.showcase $pages }}
 {{ if gt (len $latest) 0 }}
-<section id="{{.Title | urlize}}" class="container">
-    <div class="row py-3 my-3">
-        <div class="col">
-            <a href="{{.Permalink}}"><h2>{{.Title }}</h2></a>
-            <div class="row">
-                {{ range $latest }}
-                    {{ partial "card.html" . }}
-                {{ end }}
-            </div>
-        </div>
-    </div>
-</section>
+    {{ partial "home/section.html" . }}
 {{ end }}

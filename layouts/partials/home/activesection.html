@@ -1,7 +1,7 @@
 {{ $pages := where .Pages.ByPublishDate.Reverse "Params.Active" true }}
 {{ $show := first .Site.Params.showcase $pages }}
 
-{{ if gt (len $latest) 0 }}
+{{ if gt (len $show) 0 }}
 <section id="{{.Title | urlize}}" class="container">
     <div class="row py-3 my-3">
         <div class="col">

@@ -1,0 +1,116 @@
+baseURL = "https://gohugo.io"
+title = "Hugo Themes"
+author = "Steve Francia"
+copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
+paginate = 3
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+# prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
+# See https://github.com/gohugoio/hugo/issues/7228#issuecomment-714490456
+ignoreErrors = ["error-remote-getjson"]
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true
+
+# Extended sample
+[params]
+author = "Steph Locke"
+sitename = "SLAMP"
+description = "SLAMP exampleSite"
+fonts = "https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight&family=Zilla+Slab:ital,wght@0,400;0,700;1,400&display=swap"
+logo = "icons/sl.png"
+logoalt = "Example"
+copyright = "Stephanie Locke"
+cookieNotice = "🍪 This site does not use any cookies"
+themeColor = "#009688"
+social = [["Linkedin", "https://www.linkedin.com/example", "linkedin"], ["Twitter", "https://twitter.com/example", "twitter"]]
+socialProfiles = ["https://twitter.com/example","https://www.linkedin.com/in/example"]
+ampElements = [ "amp-install-serviceworker"]
+scss = ["custom.scss"]
+homepageActiveSections= []
+homepageLatestSections= ["/post"]
+showcase = 3
+[params.ogp]
+image = "icons/sl.png"
+description = "Example"
+
+[params.twitter]
+card = "player"
+title = "Example"
+site = "@example"
+description = "SLAMP ⚡ exampleSite"
+image = "icons/sl.png"
+image_alt = "Example"
+
+[outputs]
+home = ["HTML", "RSS", "REDIRECTS", "JSON", "WEBMANIFEST"]
+page = [ "HTML" ]
+
+[mediaTypes]
+  [mediaTypes."application/manifest+json"]
+    suffixes = ["webmanifest"]
+  [mediaTypes."text/netlify"]
+    suffixes = [""]
+    delimiter = ""
+[outputFormats.JSON]
+mediaType = "application/json"
+baseName = "feed"
+path = "searchindexfeed"
+isPlainText =  true
+
+[outputFormats.WEBMANIFEST]
+mediaType = "application/manifest+json"
+baseName = "manifest"
+isPlainText =  true
+
+[outputFormats.REDIRECTS]
+mediatype = "text/netlify"
+baseName = "_redirects"
+isPlainText = true
+notAlternative = true
+
+[languages]
+  [languages.en]
+    weight = 1
+
+[module]
+  [[module.imports]]
+    path = "github.com/stephlocke/slamp"

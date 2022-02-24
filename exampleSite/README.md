@@ -8,16 +8,14 @@ This repository offers an example site for [Hugo](https://gohugo.io/) and also i
 2. Clone this repository
 
 ```bash
-git clone https://github.com/gohugoio/hugoBasicExample.git
-cd hugoBasicExample
+git clone https://github.com/stephlocke/slamp
+cd slamp
 ```
 
-3. Clone the repository you want to test. If you want to test all Hugo Themes then follow the instructions provided [here](https://github.com/gohugoio/hugoThemes#installing-all-themes)
-
-4. Run Hugo and select the theme of your choosing
+3. Run Hugo
 
 ```bash
-hugo server -t YOURTHEME
+hugo server
 ```
 
 5. Under `/content/` this repository contains the following:

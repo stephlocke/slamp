@@ -56,7 +56,7 @@ author = "Steph Locke"
 sitename = "SLAMP"
 description = "SLAMP exampleSite"
 fonts = "https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight&family=Zilla+Slab:ital,wght@0,400;0,700;1,400&display=swap"
-logo = "icons/sl.png"
+logo = "icons/sl.jpg"
 logoalt = "Example"
 copyright = "Stephanie Locke"
 cookieNotice = "🍪 This site does not use any cookies"
@@ -112,5 +112,7 @@ notAlternative = true
     weight = 1
 
 [module]
+  # uncomment line below for temporary local development of module
+  # replacements = "github.com/stephlocke/slamp -> ../../../slamp"
   [[module.imports]]
     path = "github.com/stephlocke/slamp"

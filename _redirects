@@ -1,0 +1,10 @@
+# redirects for Netlify - https://www.netlify.com/docs/redirects/
+migrate-from-jekyl /post/markdown-syntax/301
+posts /post/301
+articles /post/301
+blog /post/301
+showcase /post/301
+docs /post/301
+about-us /about/301
+about-hugo /about/301
+contact /about/301

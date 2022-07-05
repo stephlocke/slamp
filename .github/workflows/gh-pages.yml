@@ -22,9 +22,6 @@ jobs:
         with:
           hugo-version: '0.92.2'
           extended: true
-
-      - name: Update theme to Latest commit
-        run: git submodule update --remote --merge
         
       - name: Build
         run: hugo --minify

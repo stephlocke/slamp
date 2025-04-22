@@ -7,14 +7,18 @@
             <!-- Mobile Menu -->
             <label for="mobile" id="mobile-menu">
               <a data-rel="prefetch" href="{{ "" | absLangURL }}" aria-label="{{ i18n "goBackHome" }}">
+                {{ with resources.Get .Site.Params.logo }}
+                {{ with .Fill "30x30 webp"}}
                 <amp-img 
                 alt="{{ .Site.Title }}"
-                src="{{ ((resources.Get .Site.Params.logo).Fill "30x30 webp").Permalink }}"
+                src="{{ .Permalink }}"
                 height="30"
                 width="30"
                 title="{{ .Site.Params.logoalt }}"
                 alt="{{ .Site.Params.logoalt }}"
                 ></amp-img>
+                {{ end }}
+              {{ end }}
             </a>
           
               <span class="main-menu-dropdown-icon">
@@ -29,14 +33,18 @@
               <!-- Left links -->
               <li class="main-menu-logo">
                 <a data-rel="prefetch" href="{{ "" | absLangURL }}" aria-label="{{ i18n "goBackHome" }}">
+                  {{ with resources.Get .Site.Params.logo }}
+                  {{ with .Fill "30x30 webp"}}
                   <amp-img 
                   alt="{{ .Site.Title }}"
-                  src="{{ ((resources.Get .Site.Params.logo).Fill "30x30 webp").Permalink }}"
+                  src="{{ .Permalink }}"
                   height="30"
                   width="30"
                   title="{{ .Site.Params.logoalt }}"
                   alt="{{ .Site.Params.logoalt }}"
                   ></amp-img>
+                  {{ end }}
+                {{ end }}
               </a>
               </li>
 

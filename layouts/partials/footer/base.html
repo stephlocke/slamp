@@ -3,8 +3,18 @@
         <div class="row">
             <div class="col">
                 <a class="" data-rel="prefetch" href="{{ "" | absLangURL }}" aria-label="{{ i18n "goBackHome" }}">
-                    <amp-img  src="{{ ((resources.Get .Site.Params.logo).Fill "30x30 webp").Permalink }}" 
-                    width="30" height="30" layout="fixed" title="{{ .Site.Params.logoalt }}" alt="{{ .Site.Params.logoalt }}"></amp-img>
+                    {{ with resources.Get .Site.Params.logo }}
+                    {{ with .Fill "30x30 webp"}}
+                    <amp-img 
+                    alt="{{ .Site.Title }}"
+                    src="{{ .Permalink }}"
+                    height="30"
+                    width="30"
+                    title="{{ .Site.Params.logoalt }}"
+                    alt="{{ .Site.Params.logoalt }}"
+                    ></amp-img>
+                    {{ end }}
+                  {{ end }}
                 </a>
             </div>
             <div class="col">

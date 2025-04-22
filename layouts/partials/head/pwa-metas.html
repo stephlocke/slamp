@@ -1,11 +1,16 @@
-{{ $icon :=  resources.Get .Site.Params.logo }}
-{{ $icon180 := $icon.Fit "180x180" }}
-{{ $icon32  := $icon.Fit "32x32" }}
-{{ $icon16  := $icon.Fit "16x16" }}
-
 
 <meta name="theme-color" content="{{ .Site.Params.ThemeColor }}"/>
 <link rel="manifest" href="{{ "manifest.webmanifest" | absURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ $icon32.Permalink }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ $icon16.Permalink }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ $icon180.Permalink }}">
+
+
+{{ with resources.Get .Site.Params.logo }}
+  {{ with .Fit "32x32" }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{.Permalink }}">
+  {{ end }}
+  {{ with .Fit "16x16"}}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{.Permalink }}">
+  {{ end }}
+  {{ with .Fit "180x180" }}
+  <link rel="icon" type="image/png" sizes="180x180" href="{{.Permalink }}">
+  {{ end }}
+{{ end }}
